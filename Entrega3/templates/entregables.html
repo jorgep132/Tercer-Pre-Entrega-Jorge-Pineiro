@@ -1,15 +1,14 @@
 {% extends 'padre.html' %}
 {% load static %}
 {% block contenidoQueCambia %}
-<h1>Registrar curso:</h1>
-<form action="{% url 'cursos' %}" method="POST">
+<h1>Entregas:</h1>
+<form action="{% url 'entregables' %}" method="POST">
     {% csrf_token %}
     <table>
-        {{curso_form.as_table}}
+        {{formulario_entrega.as_table}}
     </table>
-        <input type='submit' value='Registrar'>
+        <input type='submit' value='Enviar'>
  </form>
-
  {% if messages %}
   <ul class="messages">
     {% for message in messages %}
