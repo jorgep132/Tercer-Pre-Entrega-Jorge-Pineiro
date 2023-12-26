@@ -39,15 +39,15 @@ Seguí estos pasos para probar la funcionalidad del programa:
    - Ejecuta el formulario de búsqueda de cursos utilizando el número de camada del curso.
 
 2. **Carga de Datos de Cursos:**
-   - Encuentra el modelo "Cursos" en `Entrega3/models`.
+   - Ubica el modelo "Cursos" en `Entrega3/models`.
    - Utiliza el formulario de carga de datos de cursos en la interfaz de administrador o la ruta específica.
 
 3. **Carga de Datos de Estudiantes:**
-   - Explora el modelo "Estudiantes" en `Entrega3/models`.
+   - Ubica el modelo "Estudiantes" en `Entrega3/models`.
    - Utiliza el formulario de carga de datos de cursos en la interfaz de administrador o la ruta específica.
 
 4. **Carga de Datos de Entregables:**
-   - Accede al modelo "Entregables" en `Entrega3/models`.
+   - Ubica al modelo "Entregables" en `Entrega3/models`.
    - Utiliza el formulario de carga de datos de cursos en la interfaz de administrador o la ruta específica.
 
 ***
