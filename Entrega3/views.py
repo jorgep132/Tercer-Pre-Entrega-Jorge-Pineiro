@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from Entrega3.models import Curso
 from Entrega3.forms import (

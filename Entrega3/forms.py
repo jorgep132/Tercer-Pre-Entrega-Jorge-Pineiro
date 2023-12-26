@@ -1,3 +1,4 @@
+from datetime import datetime
 from django import forms
 from Entrega3.models import(
     Curso,
@@ -24,9 +25,18 @@ class EntregaFormulario(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'entregado': forms.CheckboxInput(),
-            'fecha_entrega': forms.DateInput(attrs={'placeholder': 'dd/mm/aaaa'}, format='%d/%m/%Y'),
+            'fecha_entrega': forms.DateInput(attrs={'placeholder': 'dd/mm/aaaa'}),
 
-        }  
+        } 
+    def clean(self):
+        cleaned_data = super().clean()
+        fecha_entrega = cleaned_data.get('fecha_entrega')
+        año_actual = datetime.now().year
+
+        if fecha_entrega and fecha_entrega.year != año_actual:
+            self.add_error('fecha_entrega', 'La fecha de entrega no debe ser diferente al año actual.')
+
+        return cleaned_data 
 
 
 
