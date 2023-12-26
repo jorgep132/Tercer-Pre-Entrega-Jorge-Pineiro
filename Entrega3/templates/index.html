@@ -1,17 +1,48 @@
 {% extends 'padre.html' %}
 {% load static %}
 {% block contenidoQueCambia %}
+
+<style>
+    input {
+        margin-left: 12px;
+    }
+
+    h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 28px;
+        margin-top: 12px;
+        margin-left: 12px;
+    }
+    p{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 19px;
+        margin-top: 5px;
+        margin-left: 12px;
+    }
+    ul{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 19px;
+    }
+    li{
+        list-style-type: none;
+        padding: 0;
+        margin-top: 1px;
+        margin-left: -20px;   
+    }
+</style> 
+
 <h1>Buscar curso</h1>
 <form action="{% url 'buscar' %}" method='GET'>
     <input type='number' name='camada' id='camada'>
     <input type='submit' value='Buscar'>
 </form>
+
 {% if cursos %}
-<p>Estamos buscando el: {{camada}}</p>
+<p>Resultados para la camada {{camada}}:</p>
 <ul>
     {% for curso in cursos %}
-        <li>{{curso.nombre_curso}}</li>
-        <li>{{curso.camada}}</li>
+        <li>Curso: {{curso.nombre_curso}}</li>
+        <li>Camada: {{curso.camada}}</li>
     {% endfor %}
 </ul>
 
@@ -20,5 +51,4 @@
         <p style='color: red'>No hay datos con esa descripción</p>
     {% endif %}
 {% endif %}
-
 {% endblock  %}

@@ -104,9 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ES' # Modifique el idioma para que los mensajes de error sean en español.
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'GMT' # Modifique la zona horaria para que los campos fechas sean en formato dd/mm/aaaa
 
 USE_I18N = True
 

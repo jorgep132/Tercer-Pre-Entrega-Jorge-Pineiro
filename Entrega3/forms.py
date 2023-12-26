@@ -24,6 +24,8 @@ class EntregaFormulario(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'entregado': forms.CheckboxInput(),
+            'fecha_entrega': forms.DateInput(attrs={'placeholder': 'dd/mm/aaaa'}, format='%d/%m/%Y'),
+
         }  
 
 

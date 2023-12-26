@@ -1,20 +1,56 @@
 {% extends 'padre.html' %}
 {% load static %}
 {% block contenidoQueCambia %}
+
+<style>
+  form {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-left: 12px;   
+  }
+
+  h1 {
+    font-size: 30px;
+    margin-top: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 12px;
+  }
+
+  form input{
+    margin-left: 10px;
+  }
+
+  form input.submit{
+    margin-left: 0px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  form input,
+  form select,
+  form textarea {
+    margin-bottom: 7px;
+  }
+
+  ul{
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    font-size: 19px;
+  }
+  li{
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1px;
+    margin-left: -20px;   
+  }
+</style>
+
 <h1>Entregas:</h1>
 <form action="{% url 'entregables' %}" method="POST">
     {% csrf_token %}
     <table>
         {{formulario_entrega.as_table}}
     </table>
-        <input type='submit' value='Enviar'>
+        <input type='submit' class='submit' value='Enviar'>
  </form>
- {% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
-
 {% endblock  %}
