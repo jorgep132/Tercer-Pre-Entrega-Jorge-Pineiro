@@ -63,7 +63,7 @@ Disstintas tecnologías utilizadas:
 ## Instalación
 Sigue el paso a paso para poder instalar el proyecto:
 1. Clona el repositorio:
-   $ git clone https://example.com
+   $ git clone [jorgep132/Tercer-Pre-Entrega-Jorge-Pineiro](https://github.com/jorgep132/Tercer-Pre-Entrega-Jorge-Pineiro)
 2. Navega al directorio del proyecto:
   $ cd path/to/the/project
 3. Instala las dependencias:
