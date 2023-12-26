@@ -5,11 +5,34 @@ from Entrega3.models import Curso
 from Entrega3.forms import (
         CursoFormulario,
         EstudiantesFormulario,
-        EntregaFormulario,    
+        EntregaFormulario,
+        
+            
 )
+
+# def buscar(request):
+#     if request.GET["camada"]:
+        
+#         camada = request.GET['camada']
+#         cursos = Curso.objects.filter(camada__icontains=camada)
+        
+#         return render(request, 'index.html', {'cursos':cursos, 'camada':camada})
+#     else :
+#         respuesta = 'No enviaste datos'
+#         return render(request, 'index.html', {'respuesta':respuesta})
+
+def buscar(request):
+    camada = request.GET.get("camada")
+    if camada is not None and camada !='':
+        cursos = Curso.objects.filter(camada=camada)
+        return render(request, 'index.html', {'cursos': cursos, 'camada': camada})
+    else:
+        respuesta = 'No enviaste datos válidos'
+        return render(request, 'index.html', {'respuesta': respuesta})
 
 def index(request):
     return render(request, 'index.html')
+
 
 def formulario_curso (request):
     if request.method == 'POST':
@@ -20,7 +43,7 @@ def formulario_curso (request):
             camada = curso_form.cleaned_data['camada']
             curso_form.save()
             messages.success(request, f'El curso {nombre_curso} -- {camada} fue agregado exitosamente.')
-            return redirect(formulario_curso)
+            return redirect('index')
         
     else:
         curso_form = CursoFormulario()
@@ -39,7 +62,7 @@ def vista_estudiantes(request):
             apellido_estudiante = formulario_estudiantes.cleaned_data['apellido_estudiante']
             formulario_estudiantes.save()
             messages.success(request, f'El estudiante {nombre_estudiante} {apellido_estudiante} fue registrado exitosamente.')
-            return redirect(vista_estudiantes)
+            return redirect('index')
         
     else:
         formulario_estudiantes = EstudiantesFormulario()
@@ -56,7 +79,7 @@ def vista_entrega(request):
         if formulario_entrega.is_valid():
             formulario_entrega.save()
             messages.success(request, f'La entrega se realizó exitosamente.')
-            return redirect(vista_entrega)
+            return redirect('index')
         
     else:
         formulario_entrega = EntregaFormulario()
@@ -64,18 +87,3 @@ def vista_entrega(request):
     return render(request, 'entregables.html', {'formulario_entrega': formulario_entrega})
 
 
-# def busqueda(request):
-#     formulario = CursoBusqueda()
-#     return render(request, 'busqueda_curso.html', {'formulario': formulario})
-
-# def busqueda_curso(request):
-    
-#     if request.method == 'GET':
-#         camada = request.GET.get('camada')
-        
-#         if camada is None:
-#             return HttpResponse('Debe ingresar un numero')
-        
-#         curso = Curso.objects.filter(camada=camada)
-        
-#         return render(request, 'curso_busqueda_respuesta.html', {"curso" : curso})

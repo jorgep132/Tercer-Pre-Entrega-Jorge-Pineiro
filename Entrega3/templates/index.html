@@ -1,6 +1,24 @@
 {% extends 'padre.html' %}
 {% load static %}
 {% block contenidoQueCambia %}
-<h1>Inicio</h1>
-</body>
+<h1>Buscar curso</h1>
+<form action="{% url 'buscar' %}" method='GET'>
+    <input type='number' name='camada' id='camada'>
+    <input type='submit' value='Buscar'>
+</form>
+{% if cursos %}
+<p>Estamos buscando el: {{camada}}</p>
+<ul>
+    {% for curso in cursos %}
+        <li>{{curso.nombre_curso}}</li>
+        <li>{{curso.camada}}</li>
+    {% endfor %}
+</ul>
+
+{% else %}
+    {% if camada %}
+        <p style='color: red'>No hay datos con esa descripción</p>
+    {% endif %}
+{% endif %}
+
 {% endblock  %}

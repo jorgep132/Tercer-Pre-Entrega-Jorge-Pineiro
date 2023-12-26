@@ -4,6 +4,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Curso(models.Model):
     nombre_curso = models.CharField(max_length=20, blank=False)
     camada = models.IntegerField(
+        blank=False,
         unique=True,
         error_messages={
             'unique': 'El numero de camada que intenta registrar ya existe. \nPor favor, utiliza otro numero.'
@@ -23,7 +24,7 @@ class Estudiante(models.Model):
             }
     )
     def __str__(self) -> str:
-        return f'Nombre del estudiante: {self.nombre_estudiante}{self.apellido_estudiante}. Email: {self.email_estudiante}'
+        return f'Nombre del estudiante: {self.nombre_estudiante}. Apellido: {self.apellido_estudiante}. Email: {self.email_estudiante}'
     
 
 class Entrega(models.Model):
@@ -32,4 +33,4 @@ class Entrega(models.Model):
     entregado = models.BooleanField(default=False)
     
     def __str__(self) -> str:
-        return f'Nombre del estudiante: {self.nombre_estudiante}. Fecha de entrega{self.fecha_entrega}. Entregado: {self.entregado}'
+        return f'Nombre del estudiante: {self.nombre_estudiante}. Fecha de entrega: {self.fecha_entrega}. Entregado: {self.entregado}'

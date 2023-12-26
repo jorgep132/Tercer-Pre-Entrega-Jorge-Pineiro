@@ -25,6 +25,6 @@ class EntregaFormulario(forms.ModelForm):
         widgets = {
             'entregado': forms.CheckboxInput(),
         }  
-        
-# class CursoBusqueda(forms.Form):
-#     camada = forms.IntegerField()
+
+
+

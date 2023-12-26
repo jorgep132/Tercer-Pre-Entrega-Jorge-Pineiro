@@ -4,7 +4,7 @@ from Entrega3.views import(
     formulario_curso,
     vista_estudiantes,
     vista_entrega,
-    
+    buscar,
 )
 
 urlpatterns = [
@@ -12,6 +12,6 @@ urlpatterns = [
     path('cursos/', formulario_curso, name='cursos'),
     path('estudiantes/', vista_estudiantes, name='estudiantes'),
     path('entregables/', vista_entrega, name='entregables'),
-
-    
+    path('buscar/', buscar, name='buscar')
+   
 ]
