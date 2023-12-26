@@ -4,7 +4,7 @@ Diseño básico de web, donde se implementan modelos y formularios, utilizando D
 ***
 
 ### Información general
-En este proyecto lo escencial es el manejo de los models y formularios dentro de la web.
+En este proyecto lo esencial es el manejo de los models y formularios dentro de la web.
 Contamos con tres modelos y un inicio, el cual servira de buscador: 
 
 1.**Inicio**:
